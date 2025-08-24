@@ -5,10 +5,14 @@ description = "A clean and modular FastAPI base project with essential configura
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+    "email-validator>=2.2.0",
     "fastapi>=0.104.0",
-    "jwt>=1.4.0",
     "passlib>=1.7.4",
     "pre-commit>=4.3.0",
+    "psycopg2-binary>=2.9.10",
+    "pydantic>=2.11.7",
+    "pyjwt>=2.10.1",
+    "python-multipart>=0.0.20",
     "sqlalchemy>=2.0.43",
     "uvicorn[standard]>=0.24.0",
 ]
