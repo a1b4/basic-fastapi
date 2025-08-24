@@ -4,6 +4,7 @@ import uuid
 from datetime import datetime
 from src.database.core import Base
 
+
 class User(Base):
     __tablename__ = "users"
 
