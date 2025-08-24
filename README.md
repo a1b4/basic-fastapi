@@ -7,6 +7,8 @@ A clean and modular FastAPI base project with essential configurations and utili
 - **FastAPI Framework**: Modern, fast web framework for building APIs
 - **Modular Structure**: Clean separation of concerns with organized code structure
 - **Logging System**: Configurable logging with different levels and formats
+- **Database Integration**: SQLAlchemy ORM with PostgreSQL support
+- **Entity Models**: User entity with UUID primary keys and timestamps
 - **Python 3.12+**: Latest Python features and performance improvements
 - **UV Package Manager**: Fast Python package management and virtual environments
 
@@ -16,7 +18,11 @@ A clean and modular FastAPI base project with essential configurations and utili
 basic-fasapi/
 ├── src/
 │   ├── main.py          # FastAPI application entry point
-│   └── logging.py       # Logging configuration utilities
+│   ├── logging.py       # Logging configuration utilities
+│   ├── database/
+│   │   └── core.py      # Database configuration and session management
+│   └── entities/
+│       └── user.py      # User entity model
 ├── main.py              # Project entry point
 ├── pyproject.toml       # Project configuration and dependencies
 ├── uv.lock              # Locked dependencies
@@ -29,6 +35,7 @@ basic-fasapi/
 
 - Python 3.12 or higher
 - UV package manager
+- PostgreSQL database (optional - for database features)
 
 ### Installation
 
@@ -41,6 +48,12 @@ basic-fasapi/
 2. **Install dependencies**
    ```bash
    uv sync
+   ```
+
+3. **Set up environment variables (optional - for database features)**
+   ```bash
+   # Create .env file with your database URL
+   echo "DATABASE_URL=postgresql://user:password@localhost/dbname" > .env
    ```
 
 3. **Run the application**
@@ -105,7 +118,17 @@ Once the server is running, you can access:
    - Custom log formats
    - Debug-friendly output
 
-3. **Project Configuration** (`pyproject.toml`)
+3. **Database Configuration** (`src/database/core.py`)
+   - SQLAlchemy engine setup
+   - Database session management
+   - Dependency injection for database sessions
+
+4. **Entity Models** (`src/entities/user.py`)
+   - User entity with UUID primary key
+   - Timestamp fields for audit trails
+   - PostgreSQL-specific data types
+
+5. **Project Configuration** (`pyproject.toml`)
    - Dependencies management
    - Python version requirements
    - Project metadata
